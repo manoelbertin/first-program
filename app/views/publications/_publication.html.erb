@@ -1,0 +1,24 @@
+<div id="<%= dom_id publication %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= publication.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Content:</strong>
+    <%= publication.content %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Files:</strong>
+    <% publication.files.each do |file| %>
+      <div><%= link_to file.filename, file %></div>
+    <% end %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this publication", publication, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this publication', edit_publication_path(publication), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
